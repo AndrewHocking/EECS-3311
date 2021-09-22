@@ -1,2 +1,2 @@
 # EECS 3311
-Andrew Hocking
+Andrew Hocking – 215 752 835 – Section B
