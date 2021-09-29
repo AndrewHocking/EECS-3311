@@ -17,10 +17,13 @@ public class ButtonPanel extends JPanel implements ActionListener {
 
 	public ButtonPanel(ShapePanel shapePanel) {
 		super(new FlowLayout());
+		
+		// Add "Load shapes" button
 		loadButton.addActionListener(this);
 		loadButton.setActionCommand("load shapes");
 		this.add(loadButton);
 		
+		// Add "Sort shapes" button
 		sortButton.addActionListener(this);
 		sortButton.setActionCommand("sort shapes");
 		sortButton.setEnabled(false);
@@ -33,10 +36,12 @@ public class ButtonPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 			case "load shapes":
+				// Generate the shapes, repaint the screen, and enable the sort button
 				ShapeFactory.generateShapes(shapePanel);
 				sortButton.setEnabled(true);
 				break;
 			case "sort shapes":
+				// Sort the shapes by surface area, repaint the screen, and disable the sort button
 				SortingTechnique.sortBySurfaceArea(shapePanel);
 				sortButton.setEnabled(false);
 				break;

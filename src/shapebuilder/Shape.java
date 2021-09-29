@@ -3,12 +3,11 @@ package shapebuilder;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * The template for all shape objects.
+ * @author Andrew Hocking
+ */
 public abstract class Shape implements Comparable<Shape> {
-	
-	public static final int MIN_WIDTH = 10;
-	public static final int MAX_WIDTH = 90;
-	public static final int MIN_HEIGHT = 10;
-	public static final int MAX_HEIGHT = 90;
 	
 	private int x;
 	private int y;
@@ -18,6 +17,8 @@ public abstract class Shape implements Comparable<Shape> {
 	
 	abstract public double getSurfaceArea();
 	abstract public void draw(Graphics g);
+	
+	// Getters and Setters
 	
 	public int getX() {
 		return x;
@@ -47,7 +48,6 @@ public abstract class Shape implements Comparable<Shape> {
 		this.width = width;
 	}
 
-
 	public Color getColour() {
 		return colour;
 	}
@@ -55,6 +55,11 @@ public abstract class Shape implements Comparable<Shape> {
 		this.colour = colour;
 	}
 	
+	/**
+	 * Returns 1 iff this Shape has a larger surface area than Shape s.
+	 * Returns -1 iff this Shape has a smaller surface area than Shape s.
+	 * Returns 0 iff they have the same surface area.
+	 */
 	public int compareTo(Shape s) {
 		double difference = this.getSurfaceArea() - s.getSurfaceArea();
 		if (difference < 0) {

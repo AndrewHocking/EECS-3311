@@ -15,14 +15,14 @@ public class Circle extends Shape {
 	}
 
 	@Override
-	public void setHeight(int length) {
-		super.setHeight(length);
-		super.setWidth(length);
-	}
-
-	@Override
 	public void setWidth(int width) {
-		this.setHeight(width);
+		super.setWidth(width);
+		super.setHeight(width);
+	}
+	
+	@Override
+	public void setHeight(int height) {
+		this.setWidth(height);
 	}
 	
 	@Override
