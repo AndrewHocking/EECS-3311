@@ -10,11 +10,8 @@ import javax.swing.JPanel;
 public class ButtonPanel extends JPanel implements ActionListener {
 	
 	private static final long serialVersionUID = -5412098210805709542L;
-	
-	private final class ButtonAction {
-		public static final String LOAD_SHAPES = "Load shapes";
-		public static final String SORT_SHAPES = "Sort shapes";
-	}
+	private static final String LOAD_SHAPES = "Load shapes";
+	private static final String SORT_SHAPES = "Sort shapes";
 	
 	private JButton loadButton;
 	private JButton sortButton;
@@ -25,15 +22,15 @@ public class ButtonPanel extends JPanel implements ActionListener {
 		super(new FlowLayout());
 		
 		// Add "Load shapes" button
-		loadButton = new JButton(ButtonAction.LOAD_SHAPES);
+		loadButton = new JButton(LOAD_SHAPES);
 		loadButton.addActionListener(this);
-		loadButton.setActionCommand(ButtonAction.LOAD_SHAPES);
+		loadButton.setActionCommand(LOAD_SHAPES);
 		this.add(loadButton);
 		
 		// Add "Sort shapes" button, disabled by default
-		sortButton = new JButton(ButtonAction.SORT_SHAPES);
+		sortButton = new JButton(SORT_SHAPES);
 		sortButton.addActionListener(this);
-		sortButton.setActionCommand(ButtonAction.SORT_SHAPES);
+		sortButton.setActionCommand(SORT_SHAPES);
 		sortButton.setEnabled(false);
 		this.add(sortButton);
 		
@@ -43,12 +40,12 @@ public class ButtonPanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
-			case ButtonAction.LOAD_SHAPES:
+			case LOAD_SHAPES:
 				// Generate the shapes, repaint the screen, and enable the sort button
 				ShapeFactory.generateShapes(shapePanel);
 				sortButton.setEnabled(true);
 				break;
-			case ButtonAction.SORT_SHAPES:
+			case SORT_SHAPES:
 				// Sort the shapes by surface area, repaint the screen, and disable the sort button
 				SortingTechnique.sortBySurfaceArea(shapePanel);
 				sortButton.setEnabled(false);
