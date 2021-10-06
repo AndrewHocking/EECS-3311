@@ -56,9 +56,9 @@ public abstract class Shape implements Comparable<Shape> {
 	}
 	
 	/**
-	 * Returns 1 iff this Shape has a larger surface area than Shape s.
-	 * Returns -1 iff this Shape has a smaller surface area than Shape s.
-	 * Returns 0 iff they have the same surface area.
+	 * Returns 1 if this Shape has a larger surface area than Shape s.
+	 * Returns -1 if this Shape has a smaller surface area than Shape s.
+	 * Returns 0 if they have the same surface area.
 	 */
 	public int compareTo(Shape s) {
 		double difference = this.getSurfaceArea() - s.getSurfaceArea();

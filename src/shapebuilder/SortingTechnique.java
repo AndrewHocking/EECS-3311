@@ -2,7 +2,13 @@ package shapebuilder;
 
 import java.util.List;
 
+/**
+ * A utility class for sorting the Shape objects.
+ * @author Andrew Hocking
+ */
 public class SortingTechnique {
+	
+	private SortingTechnique() {}
 	
 	/**
 	 * Sorts shapes by their surface area in ascending order using Bubble Sort, then repaints the screen.
@@ -24,13 +30,13 @@ public class SortingTechnique {
     }
 	
 	private static void repaintShapes(ShapePanel shapePanel) {
-		int x = ShapeFactory.SPACING;
-		int y = ShapeFactory.SPACING;
+		int x = ShapePanel.SPACING;
+		int y = ShapePanel.SPACING;
 		for (Shape shape : shapePanel.getShapes()) {
 			shape.setX(x);
 			shape.setY(y);
-			x += shape.getWidth() + ShapeFactory.SPACING;
-			y += shape.getHeight() + ShapeFactory.SPACING;
+			x += shape.getWidth() + ShapePanel.SPACING;
+			y += shape.getHeight() + ShapePanel.SPACING;
 		}
 		shapePanel.repaint();
 	}
