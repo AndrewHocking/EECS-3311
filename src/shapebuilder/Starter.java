@@ -11,11 +11,11 @@ import javax.swing.JFrame;
  */
 public class Starter {
 	
-	private final static Starter instance = new Starter();
+	private final static Starter INSTANCE = new Starter();
 	private Starter() {}
 	
 	public static Starter getInstance() {
-		return instance;
+		return INSTANCE;
 	}
 	
 	public static void main(String[] args) {

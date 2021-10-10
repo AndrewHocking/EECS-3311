@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 public class ButtonPanel extends JPanel implements ActionListener {
 	
 	private static final long serialVersionUID = -5412098210805709542L;
-	private static final ButtonPanel instance = new ButtonPanel(ShapePanel.getInstance());
+	private static final ButtonPanel INSTANCE = new ButtonPanel();
 	
 	private static final String LOAD_SHAPES = "Load shapes";
 	private static final String SORT_SHAPES = "Sort shapes";
@@ -24,9 +24,7 @@ public class ButtonPanel extends JPanel implements ActionListener {
 	private JButton loadButton;
 	private JButton sortButton;
 
-	private ShapePanel shapePanel;
-
-	private ButtonPanel(ShapePanel shapePanel) {
+	private ButtonPanel() {
 		super(new FlowLayout());
 		
 		// Add "Load shapes" button
@@ -42,14 +40,13 @@ public class ButtonPanel extends JPanel implements ActionListener {
 		sortButton.setEnabled(false);
 		this.add(sortButton);
 		
-		this.shapePanel = shapePanel;
 	}
 	
 	/**
 	 * @return The single instance of ButtonPanel.
 	 */
 	public static ButtonPanel getInstance() {
-		return instance;
+		return INSTANCE;
 	}
 
 	@Override
@@ -57,12 +54,12 @@ public class ButtonPanel extends JPanel implements ActionListener {
 		switch (e.getActionCommand()) {
 			case LOAD_SHAPES:
 				// Generate the shapes, repaint the screen, and enable the sort button
-				generateShapes(shapePanel);
+				generateShapes();
 				sortButton.setEnabled(true);
 				break;
 			case SORT_SHAPES:
 				// Sort the shapes by surface area, repaint the screen, and disable the sort button
-				SortingTechnique.sortBySurfaceArea(shapePanel);
+				SortingTechnique.sortBySurfaceArea();
 				sortButton.setEnabled(false);
 				break;
 			default:
@@ -75,7 +72,8 @@ public class ButtonPanel extends JPanel implements ActionListener {
 	 * Generates the new shapes and repaints the screen.
 	 * @param shapePanel
 	 */
-	private void generateShapes(ShapePanel shapePanel) {
+	private void generateShapes() {
+		ShapePanel shapePanel = ShapePanel.getInstance();
 		shapePanel.getShapes().clear();
 		
 		ShapeFactory factory = new ShapeFactory();

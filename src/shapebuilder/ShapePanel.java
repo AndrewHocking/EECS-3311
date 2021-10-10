@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class ShapePanel extends JPanel {
 
 	private static final long serialVersionUID = -6477724278434788915L;
-	private static final ShapePanel instance = new ShapePanel();
+	private static final ShapePanel INSTANCE = new ShapePanel();
 	
 	public static final int SPACING = 10;
 	public static final int MIN_SHAPE_SIZE = 20;
@@ -26,7 +26,7 @@ public class ShapePanel extends JPanel {
 	 * @return The single instance of ShapePanel.
 	 */
 	public static ShapePanel getInstance() {
-		return instance;
+		return INSTANCE;
 	}
 	
 	/**

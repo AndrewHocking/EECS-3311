@@ -14,8 +14,8 @@ public class SortingTechnique {
 	 * Sorts shapes by their surface area in ascending order using Bubble Sort, then repaints the screen.
 	 * @param shapePanel
 	 */
-	public static void sortBySurfaceArea(ShapePanel shapePanel) {
-		List<Shape> shapes = shapePanel.getShapes();
+	public static void sortBySurfaceArea() {
+		List<Shape> shapes = ShapePanel.getInstance().getShapes();
         int numberOfShapes = shapes.size();
         for (int i = 0; i < numberOfShapes - 1; i++) {
             for (int j = 0; j < numberOfShapes - i - 1; j++) {
@@ -26,18 +26,18 @@ public class SortingTechnique {
                 }
             }
         }
-        repaintShapes(shapePanel);
+        repaintShapes();
     }
 	
-	private static void repaintShapes(ShapePanel shapePanel) {
+	private static void repaintShapes() {
 		int x = ShapePanel.SPACING;
 		int y = ShapePanel.SPACING;
-		for (Shape shape : shapePanel.getShapes()) {
+		for (Shape shape : ShapePanel.getInstance().getShapes()) {
 			shape.setX(x);
 			shape.setY(y);
 			x += shape.getWidth() + ShapePanel.SPACING;
 			y += shape.getHeight() + ShapePanel.SPACING;
 		}
-		shapePanel.repaint();
+		ShapePanel.getInstance().repaint();
 	}
 }
