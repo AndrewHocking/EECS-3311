@@ -20,7 +20,9 @@ public class ButtonPanel extends JPanel implements ActionListener {
 	private static final String LOAD_SHAPES = "Load shapes";
 	private static final String SORT_SHAPES = "Sort shapes";
 	private static final int NUMBER_OF_SHAPES = 6;
-	
+
+	private ShapeFactory factory = new ShapeFactory();
+	private Random random = new Random();
 	private JButton loadButton;
 	private JButton sortButton;
 
@@ -75,9 +77,6 @@ public class ButtonPanel extends JPanel implements ActionListener {
 	private void generateShapes() {
 		ShapePanel shapePanel = ShapePanel.getInstance();
 		shapePanel.getShapes().clear();
-		
-		ShapeFactory factory = new ShapeFactory();
-		Random random = new Random();
 		
 		final int maxWidth = shapePanel.getMaxShapeWidth(NUMBER_OF_SHAPES);
 		final int maxHeight = shapePanel.getMaxShapeHeight(NUMBER_OF_SHAPES);

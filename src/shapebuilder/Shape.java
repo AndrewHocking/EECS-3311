@@ -15,7 +15,15 @@ public abstract class Shape implements Comparable<Shape> {
 	private int width;
 	private Color colour;
 	
+	/**
+	 * @return The surface area of the Shape.
+	 */
 	abstract public double getSurfaceArea();
+	
+	/**
+	 * Draws the shape on the screen (but does not repaint its container).
+	 * @param g
+	 */
 	abstract public void draw(Graphics g);
 	
 	// Getters and Setters
